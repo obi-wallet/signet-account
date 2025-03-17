@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "config",
+    "owner"
+  ],
+  "properties": {
+    "config": {
+      "$ref": "#/definitions/Config"
+    },
+    "owner": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "Config": {
+      "type": "object",
+      "required": [
+        "asset_unifier_address",
+        "asset_unifier_code_hash",
+        "debt_repay_address",
+        "debtkeeper_code_hash",
+        "debtkeeper_code_id",
+        "default_gatekeepers",
+        "fee_pay_address",
+        "user_account_code_hash",
+        "user_account_code_id",
+        "user_entry_code_hash",
+        "user_entry_code_id",
+        "user_state_code_hash",
+        "user_state_code_id"
+      ],
+      "properties": {
+        "asset_unifier_address": {
+          "type": "string"
+        },
+        "asset_unifier_code_hash": {
+          "type": "string"
+        },
+        "debt_repay_address": {
+          "type": "string"
+        },
+        "debtkeeper_code_hash": {
+          "type": "string"
+        },
+        "debtkeeper_code_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "default_gatekeepers": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": [
+              {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "maxItems": 3,
+            "minItems": 3
+          }
+        },
+        "fee_pay_address": {
+          "type": "string"
+        },
+        "user_account_code_hash": {
+          "type": "string"
+        },
+        "user_account_code_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "user_entry_code_hash": {
+          "type": "string"
+        },
+        "user_entry_code_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "user_state_code_hash": {
+          "type": "string"
+        },
+        "user_state_code_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        }
+      }
+    }
+  }
+}

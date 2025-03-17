@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "update_legacy_owner"
+      ],
+      "properties": {
+        "update_legacy_owner": {
+          "type": "object",
+          "required": [
+            "new_owner"
+          ],
+          "properties": {
+            "new_owner": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

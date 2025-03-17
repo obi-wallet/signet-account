@@ -1,0 +1,13 @@
+{
+  "name": "@lavamoat/mpc-ecdsa-wasm",
+  "description": "Webassembly bindings to CGGMP multi-party-ecdsa",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "mpc_ecdsa_wasm_bg.wasm",
+    "mpc_ecdsa_wasm.js",
+    "mpc_ecdsa_wasm.d.ts"
+  ],
+  "main": "mpc_ecdsa_wasm.js",
+  "types": "mpc_ecdsa_wasm.d.ts"
+}

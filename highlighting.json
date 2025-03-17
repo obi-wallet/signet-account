@@ -1,0 +1,142 @@
+{
+  "default": {
+    "fontFamily": "Roboto Mono",
+    "italic": false,
+    "bold": false,
+    "foreground": "#D6D6DD",
+    "background": "#212121"
+  },
+  "codeMirror": {
+    "header": {
+      "bold": true,
+      "foreground": "#EFB080"
+    },
+    "quote": "#6D6D6D",
+    "negative": "#743D3D",
+    "positive": "#B3F6C5",
+    "strong": {
+      "bold": true
+    },
+    "em": {
+      "italic": true
+    },
+    "keyword": {
+      "bold": true,
+      "foreground": "#82D2CE"
+    },
+    "atom": "#E394DC",
+    "number": "#EBC88D",
+    "def": "#F8C762",
+    "variable": "#94C1FA",
+    "punctuation": "#AAA0FA",
+    "property": "#FDA5FF",
+    "operator": {
+      "bold": true,
+      "foreground": "#C7C7FF"
+    },
+    "builtin": "#EFB080",
+    "bracket": "#3A6DA0",
+    "variable-2": "#FAD075",
+    "variable-3": "#D1F08A",
+    "type": "#87C3FF",
+    "comment": {
+      "italic": true,
+      "foreground": "#6D6D6D"
+    },
+    "string": "#E394DC",
+    "string-2": "#68E868",
+    "meta": "#A7A7A7",
+    "qualifier": "#71D7D7",
+    "tag": "#898989",
+    "attribute": "#FFB3B3",
+    "hr": "#737373",
+    "link": "#06B8B8",
+    "error": "#FF6767",
+    "invalidchar": "#6E3B3B"
+  },
+  "spans": {
+    "path": "#754200",
+    "number": "#EBC88D",
+    "string": "#E394DC",
+    "keyword": "#82D2CE",
+    "ipv4": "#EFB080",
+    "rest": "#FFC2C2"
+  },
+  "modes": {
+    "none": {
+      "modeColor": "#181818"
+    },
+    "toit": {
+      "modeColor": "#292929"
+    },
+    "dart": {
+      "modeColor": "#292929"
+    },
+    "shell": {
+      "modeColor": "#181818"
+    },
+    "go": {
+      "modeColor": "#181818"
+    },
+    "python": {
+      "modeColor": "#181818"
+    },
+    "yaml": {
+      "modeColor": "#181818"
+    },
+    "c": {
+      "modeColor": "#181818"
+    },
+    "c++": {
+      "modeColor": "#181818"
+    },
+    "css": {
+      "modeColor": "#181818"
+    },
+    "js": {
+      "modeColor": "#181818"
+    },
+    "jsx": {
+      "modeColor": "#181818"
+    },
+    "ts": {
+      "modeColor": "#181818"
+    },
+    "json": {
+      "modeColor": "#181818"
+    },
+    "java": {
+      "modeColor": "#181818"
+    },
+    "kotlin": {
+      "modeColor": "#181818"
+    },
+    "c#": {
+      "modeColor": "#181818"
+    },
+    "objective-c": {
+      "modeColor": "#181818"
+    },
+    "scala": {
+      "modeColor": "#181818"
+    },
+    "html": {
+      "modeColor": "#181818"
+    },
+    "xml": {
+      "modeColor": "#181818"
+    },
+    "dockerfile": {
+      "modeColor": "#181818"
+    },
+    "julia": {
+      "modeColor": "#181818"
+    },
+    "rust": {
+      "modeColor": "#181818"
+    },
+    "r": {
+      "modeColor": "#181818"
+    }
+  }
+}

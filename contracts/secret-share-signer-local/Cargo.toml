@@ -1,0 +1,57 @@
+[package]
+name = "secret-share-signer"
+version = "0.1.0"
+authors = ["Peter Keay <pete@obi.money>"]
+edition = "2021"
+exclude = [
+  # Those files are rust-optimizer artifacts. You might want to commit them for convenience but they should not be part of the source code publication.
+  "contract.wasm",
+  "hash.txt",
+]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["secretwasm", "schema"]
+# for quicker tests, cargo test --lib
+# for more explicit tests, cargo test --features=backtraces
+# backtraces = ["secret-cosmwasm-std/backtraces"]
+schema = ["cosmwasm-schema"]
+cosmwasm = []
+secretwasm = []
+
+[dependencies]
+classes = { path = "../../packages/classes"}
+common = { path = "../../packages/common" }
+ec_curve = { path = "../../packages/ec_curve" }
+macros = { path = "../../packages/macros" }
+scrt_sss = { path = "../../packages/sss" }
+secret-macros = { path = "../../packages/secret_macros" }
+
+cosmwasm-schema = { version = "1.3.1", optional = true }
+secret-cosmwasm-std = { version = "1.1.11", default-features = false }
+secret-cosmwasm-storage = { version = "1.1.10", default-features = false }
+secret-toolkit = { version = "0.10.0", default-features = false, features = ["storage", "permit"] }
+
+bincode2 = "2.0.1"
+base64 = "0.21.4"
+digest = "0.9.0"
+hex = "0.4.3"
+num-bigint = { version = "0.4.3", default-features = false }
+schemars = "0.8.12"
+secp256k1 = { version = "0.27.0", default-features = false, features = ["bitcoin-hashes", "rand"] }
+serde = { version = "1.0.177", default-features = false, features = ["derive"] }
+sha3 = "0.9.1"
+sha2 = "0.9.9"
+thiserror = "1.0"
+
+[dev-dependencies]
+multi-party-ecdsa = { git = "https://github.com/luca992/multi-party-ecdsa.git", branch = "incremental-sign" }
+round-based = { version = "0.1.4" }
+curv-kzen = { version = "0.10.0" }
+
+[[bin]]
+name = "schema"
+required-features = ["schema"]

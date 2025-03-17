@@ -1,0 +1,28 @@
+name: Library
+
+on: [pull_request]
+
+env:
+  RUST_LOG: "0"
+  WORKING_DIRECTORY: ./library
+
+jobs:
+  fmt:
+    name: all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          components: clippy, rustfmt
+      - name: Run cargo fmt
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: cargo fmt --all -- --check
+      - name: Run cargo clippy
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: cargo clippy --all
+      - name: Run cargo build
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: cargo build --release

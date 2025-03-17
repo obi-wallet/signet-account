@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "home_network",
+    "pair_contract_registry"
+  ],
+  "properties": {
+    "home_network": {
+      "type": "string"
+    },
+    "legacy_owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pair_contract_registry": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

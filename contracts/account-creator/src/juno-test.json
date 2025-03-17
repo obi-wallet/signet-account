@@ -1,0 +1,71 @@
+{
+    "ujunox": {
+      "protocol": "Dummy",
+      "name": "ujunox loop pair",
+      "asset_infos": [
+        {
+          "native_token": {
+            "denom": "ujunox"
+          }
+        },
+        {
+          "native_token": {
+            "denom": "uloop"
+          }
+        }
+      ],
+      "contract_addr": "contract1",
+      "liquidity_token": "liquiditytoken1",
+      "pair_type": {
+        "xyk": {}
+      },
+      "dex": "loop",
+      "dummyprice": 137000000
+    },
+    "ibc/B3504E092456BA618CC28AC671A71FB08C6CA0FD0BE7C8A5B5A3E2DD933CC9E4": {
+      "protocol": "Dummy",
+      "name": "axlUSDC loop Pair",
+      "asset_infos": [
+        {
+          "native_token": {
+            "denom": "ibc/B3504E092456BA618CC28AC671A71FB08C6CA0FD0BE7C8A5B5A3E2DD933CC9E4"
+          }
+        },
+        {
+          "native_token": {
+            "denom": "uloop"
+          }
+        }
+      ],
+      "contract_addr": "contract2",
+      "liquidity_token": "liquiditytoken2",
+      "pair_type": {
+        "xyk": {}
+      },
+      "dex": "loop",
+      "dummyprice": 30000000
+    },
+    "junoswapdirect": {
+      "protocol": "Junoswap",
+      "name": "ujunox axlUSDC pair",
+      "asset_infos": [
+        {
+          "native_token": {
+            "denom": "ujunox"
+          }
+        },
+        {
+          "native_token": {
+            "denom": "ibc/B3504E092456BA618CC28AC671A71FB08C6CA0FD0BE7C8A5B5A3E2DD933CC9E4"
+          }
+        }
+      ],
+      "contract_addr": "contract3",
+      "liquidity_token": "liquiditytoken3",
+      "pair_type": {
+        "xyk": {}
+      },
+      "dex": "junoswap",
+      "dummyprice": 4566666
+    }
+  }

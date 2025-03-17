@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "parse_user_op"
+      ],
+      "properties": {
+        "parse_user_op": {
+          "type": "object",
+          "required": [
+            "user_op"
+          ],
+          "properties": {
+            "user_op": {
+              "$ref": "#/definitions/EthUserOp"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "EthUserOp": {
+      "type": "object",
+      "required": [
+        "call_data",
+        "call_gas_limit",
+        "init_code",
+        "max_fee_per_gas",
+        "max_priority_fee_per_gas",
+        "nonce",
+        "paymaster_and_data",
+        "pre_verification_gas",
+        "sender",
+        "signature",
+        "verification_gas_limit"
+      ],
+      "properties": {
+        "call_data": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint8",
+            "minimum": 0.0
+          }
+        },
+        "call_gas_limit": {
+          "$ref": "#/definitions/Uint256"
+        },
+        "init_code": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint8",
+            "minimum": 0.0
+          }
+        },
+        "max_fee_per_gas": {
+          "$ref": "#/definitions/Uint256"
+        },
+        "max_priority_fee_per_gas": {
+          "$ref": "#/definitions/Uint256"
+        },
+        "nonce": {
+          "$ref": "#/definitions/Uint256"
+        },
+        "paymaster_and_data": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint8",
+            "minimum": 0.0
+          }
+        },
+        "pre_verification_gas": {
+          "$ref": "#/definitions/Uint256"
+        },
+        "sender": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint8",
+            "minimum": 0.0
+          }
+        },
+        "verification_gas_limit": {
+          "$ref": "#/definitions/Uint256"
+        }
+      }
+    },
+    "Uint256": {
+      "description": "An implementation of u256 that is using strings for JSON encoding/decoding, such that the full u256 range can be used for clients that convert JSON numbers to floats, like JavaScript and jq.\n\n# Examples\n\nUse `from` to create instances out of primitive uint types or `new` to provide big endian bytes:\n\n``` # use secret_cosmwasm_std::Uint256; let a = Uint256::from(258u128); let b = Uint256::new([ 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 1u8, 2u8, ]); assert_eq!(a, b); ```",
+      "type": "string"
+    }
+  }
+}

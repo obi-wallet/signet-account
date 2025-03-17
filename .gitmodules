@@ -1,0 +1,7 @@
+[submodule "packages/ethers-rs"]
+	path = packages/ethers-rs
+	url = https://github.com/obi-wallet/ethers-rs
+[submodule "packages/framework"]
+	path = packages/framework
+	url = git@github.com:obi-wallet/framework.git
+	branch = obi-unsecure

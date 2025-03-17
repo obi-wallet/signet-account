@@ -1,0 +1,45 @@
+[
+  {
+    "name": "account_creator"
+  },
+  {
+    "name": "asset_unifier"
+  },
+  {
+    "name": "dummy_counter_executable",
+    "codeHash": "5bdab0a7c5679d30ffc385bdb076c3013fc27e723abbf11a05e742b499bafe7b"
+  },
+  {
+    "name": "eth_interpreter"
+  },
+  {
+    "name": "fee_manager"
+  },
+  {
+    "name": "debtkeeper"
+  },
+  {
+    "name": "gatekeeper_message"
+  },
+  {
+    "name": "gatekeeper_spendlimit"
+  },
+  {
+    "name": "pair_registry"
+  },
+  {
+    "name": "premigrate_user_entry"
+  },
+  {
+    "name": "secret_share_signer"
+  },
+  {
+    "name": "user_account"
+  },
+  {
+    "name": "user_entry"
+  },
+  {
+    "name": "user_state"
+  }
+]

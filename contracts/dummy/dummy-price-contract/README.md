@@ -1,0 +1,1 @@
+This contract replies to Simulation message queries as if it's got price data, even though it just stores static data. For testnet development of contracts which query a mainnet Dex when testnet equivalents are unavailable.

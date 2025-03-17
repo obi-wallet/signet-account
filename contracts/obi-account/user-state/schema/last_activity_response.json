@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LastActivityResponse",
+  "type": "object",
+  "required": [
+    "last_activity"
+  ],
+  "properties": {
+    "last_activity": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    }
+  }
+}

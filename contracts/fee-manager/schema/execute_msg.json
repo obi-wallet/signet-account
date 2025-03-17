@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "set_fee"
+      ],
+      "properties": {
+        "set_fee": {
+          "type": "object",
+          "required": [
+            "chain_id",
+            "new_fee_divisor"
+          ],
+          "properties": {
+            "chain_id": {
+              "type": "string"
+            },
+            "new_fee_divisor": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "set_fee_address"
+      ],
+      "properties": {
+        "set_fee_address": {
+          "type": "object",
+          "required": [
+            "chain_id",
+            "new_fee_address"
+          ],
+          "properties": {
+            "chain_id": {
+              "type": "string"
+            },
+            "new_fee_address": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

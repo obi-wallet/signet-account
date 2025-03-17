@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FeeDetailsResponse",
+  "type": "object",
+  "required": [
+    "fee_divisor",
+    "fee_pay_address"
+  ],
+  "properties": {
+    "fee_divisor": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "fee_pay_address": {
+      "type": "string"
+    }
+  }
+}

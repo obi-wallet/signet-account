@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "account"
+  ],
+  "properties": {
+    "account": {
+      "$ref": "#/definitions/UserAccount"
+    }
+  },
+  "definitions": {
+    "Addr": {
+      "description": "A human readable address.\n\nIn Cosmos, this is typically bech32 encoded. But for multi-chain smart contracts no assumptions should be made other than being UTF-8 encoded and of reasonable length.\n\nThis type represents a validated address. It can be created in the following ways 1. Use `Addr::unchecked(input)` 2. Use `let checked: Addr = deps.api.addr_validate(input)?` 3. Use `let checked: Addr = deps.api.addr_humanize(canonical_addr)?` 4. Deserialize from JSON. This must only be done from JSON that was validated before such as a contract's state. `Addr` must not be used in messages sent by the user because this would result in unvalidated instances.\n\nThis type is immutable. If you really need to mutate it (Really? Are you sure?), create a mutable copy using `let mut mutable = Addr::to_string()` and operate on that `String` instance.",
+      "type": "string"
+    },
+    "Signer": {
+      "description": "The `Signer` type identifies a member of the admin multisig, and its type. The format or encryption of type, `ty`, is up to the client. `address` is verified using the deps API when Signer is created.",
+      "type": "object",
+      "required": [
+        "address",
+        "pubkey_base_64",
+        "ty"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/Addr"
+        },
+        "pubkey_base_64": {
+          "type": "string"
+        },
+        "ty": {
+          "type": "string"
+        }
+      }
+    },
+    "Signers": {
+      "type": "object",
+      "required": [
+        "signers"
+      ],
+      "properties": {
+        "signers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Signer"
+          }
+        }
+      }
+    },
+    "UserAccount": {
+      "type": "object",
+      "required": [
+        "gatekeepers",
+        "magic_update",
+        "nexthash",
+        "signers"
+      ],
+      "properties": {
+        "asset_unifier_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "asset_unifier_contract_addr": {
+          "description": "Asset unifier contract (shared)",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "debtkeeper_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "debtkeeper_contract_addr": {
+          "description": "Contract that manages debt",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evm_contract_address": {
+          "description": "For lookup only",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evm_signing_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fee_pay_wallet": {
+          "description": "Address to send to when repaying fee debts (home chain only)",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gatekeepers": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "maxItems": 2,
+            "minItems": 2
+          }
+        },
+        "legacy_owner": {
+          "description": "Current legacy owner. None if ownership is handled elsewhere.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "magic_update": {
+          "description": "True if this account was created for the user and is awaiting its initial owner",
+          "type": "boolean"
+        },
+        "nexthash": {
+          "description": "Used for alternative verification (verifying signatures directly)",
+          "type": "string"
+        },
+        "owner_updates_delay_secs": {
+          "description": "Currently ineffective. Seconds of mandatory delay between ProposeUpdateOwner and ConfirmUpdateOwner.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "signers": {
+          "description": "Stores multisig signers for recovery lookup. Increasingly this is used for verification, such as when signer verifies submitters of a query.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Signers"
+            }
+          ]
+        },
+        "user_state_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_state_contract_addr": {
+          "description": "Unified user state (used by all, settable only by user account)",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

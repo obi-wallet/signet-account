@@ -1,0 +1,37 @@
+[package]
+name = "dummy-counter-executable"
+version = "0.3.4"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["secretwasm"]
+cosmwasm = ["cw1", "cw2", "cosmwasm-std", "cw-storage-plus", "cw-utils"]
+secretwasm = ["secret-cosmwasm-std", "secret-toolkit", "secret-macros"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+serde = { version = "1.0.127", default-features = false, features = ["derive"] }
+schemars = "0.8.3"
+classes = { version = "0.1.0", path = "../../../packages/classes" }
+common = { path = "../../../packages/common" }
+macros = { path = "../../../packages/macros" }
+cw1 = { version = "1.0.1", optional = true }
+cw2 = { version = "1.0.1", optional = true }
+semver = "1"
+cw-utils = { version = "1.0.1", optional = true }
+thiserror = { version = "1.0.21" }
+cosmwasm-schema = "1.0.0"
+uniserde = { path = "../../../packages/uniserde"}
+
+cosmwasm-std = { version = "1.1.6", optional = true, features = ["staking"] }
+cw-storage-plus = { version = "1.0.1", optional = true}
+secret-cosmwasm-std = { version = "1.1.11", optional = true, features = ["staking"] }
+secret-toolkit = { version = "0.10.0", optional = true, default-features = false, features = ["utils", "storage", "serialization"] }
+secret-macros = { path = "../../../packages/secret_macros", optional = true }
+
+[dev-dependencies]
+cw-multi-test = { version = "0.16.4" }

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "description": "`InstantiateMsg` is used to create gatekeepers",
+  "type": "object",
+  "required": [
+    "user_account_contract"
+  ],
+  "properties": {
+    "legacy_owner": {
+      "description": "`legacy_owner` is for use when not in an Andromeda context. Otherwise, use e.g. .execute_update_operators()",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "user_account_contract": {
+      "description": "The address of the user account contract that is associated with the current contract",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

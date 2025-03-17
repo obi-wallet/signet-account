@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LegacyOwnerResponse",
+  "type": "object",
+  "required": [
+    "legacy_owner"
+  ],
+  "properties": {
+    "legacy_owner": {
+      "type": "string"
+    }
+  }
+}

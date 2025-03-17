@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "types": ["node", "mocha"],
+    "module": "nodenext",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": [
+    "node_modules"
+  ]
+}

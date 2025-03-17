@@ -1,0 +1,72 @@
+name: Webassembly
+
+on: [pull_request]
+
+env:
+  RUST_LOG: "0"
+  WORKING_DIRECTORY: ./packages/wasm
+
+jobs:
+  fmt:
+    name: fmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: default
+          components: rustfmt
+      - name: Run cargo fmt
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: cargo fmt --all -- --check
+
+  clippy:
+    name: clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          components: rust-src, clippy
+          target: wasm32-unknown-unknown
+      - name: Run cargo clippy
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: cargo clippy --all
+
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: default
+          components: rust-src
+          target: wasm32-unknown-unknown
+      - name: Run cargo build
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: cargo check
+
+  web:
+    name: web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          components: rust-src
+          target: wasm32-unknown-unknown
+      - name: Install wasm-pack
+        uses: jetli/wasm-pack-action@v0.3.0
+        with:
+          version: 'v0.10.2'
+      - name: Run wasm-pack
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: wasm-pack build --target web

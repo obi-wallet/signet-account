@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Authorizations",
+  "type": "object",
+  "required": [
+    "authorizations"
+  ],
+  "properties": {
+    "authorizations": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": [
+          {
+            "type": "integer",
+            "format": "uint16",
+            "minimum": 0.0
+          },
+          {
+            "$ref": "#/definitions/Authorization"
+          }
+        ],
+        "maxItems": 2,
+        "minItems": 2
+      }
+    }
+  },
+  "definitions": {
+    "Addr": {
+      "description": "A human readable address.\n\nIn Cosmos, this is typically bech32 encoded. But for multi-chain smart contracts no assumptions should be made other than being UTF-8 encoded and of reasonable length.\n\nThis type represents a validated address. It can be created in the following ways 1. Use `Addr::unchecked(input)` 2. Use `let checked: Addr = deps.api.addr_validate(input)?` 3. Use `let checked: Addr = deps.api.addr_humanize(canonical_addr)?` 4. Deserialize from JSON. This must only be done from JSON that was validated before such as a contract's state. `Addr` must not be used in messages sent by the user because this would result in unvalidated instances.\n\nThis type is immutable. If you really need to mutate it (Really? Are you sure?), create a mutable copy using `let mut mutable = Addr::to_string()` and operate on that `String` instance.",
+      "type": "string"
+    },
+    "Authorization": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Addr"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contract": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "fields": {
+          "description": "parameters for the above action FieldComp is assumed to be Equals if none",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "array",
+            "items": [
+              {
+                "$ref": "#/definitions/KeyValueOptions"
+              },
+              {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/FieldComp"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            ],
+            "maxItems": 2,
+            "minItems": 2
+          }
+        },
+        "identifier": {
+          "description": "Identifier is a non-zero number that represents the ID of the auth",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint16",
+          "minimum": 0.0
+        },
+        "message_name": {
+          "description": "Message_name is the name of the message that we wish to match authorizations to MsgExecuteContract, MsgInstantiateContract",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "wasmaction_name": {
+          "description": "wasmaction_name is the name of the action, e.g. \"transfer\" or \"unstake\"",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "Binary": {
+      "description": "Binary is a wrapper around Vec<u8> to add base64 de/serialization with serde. It also adds some helper methods to help encode inline.\n\nThis is only needed as serde-json-{core,wasm} has a horrible encoding for Vec<u8>. See also <https://github.com/CosmWasm/cosmwasm/blob/main/docs/MESSAGE_TYPES.md>.",
+      "type": "string"
+    },
+    "FieldComp": {
+      "type": "string",
+      "enum": [
+        "equals",
+        "not_equals",
+        "greater_than",
+        "less_than",
+        "greater_than_or_equal",
+        "less_than_or_equal",
+        "any_of",
+        "any_matching_object"
+      ]
+    },
+    "KeyValueOptions": {
+      "type": "object",
+      "required": [
+        "allowed_values",
+        "key"
+      ],
+      "properties": {
+        "allowed_values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringOrBinary"
+          }
+        },
+        "key": {
+          "type": "string"
+        }
+      }
+    },
+    "StringOrBinary": {
+      "type": "object",
+      "properties": {
+        "binary": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Binary"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "string": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

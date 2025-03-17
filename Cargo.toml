@@ -1,0 +1,31 @@
+[workspace]
+members = [
+    "packages/classes",
+    "packages/macros",
+    "contracts/dummy/*",
+    "contracts/account-creator",
+    "contracts/obi-account/*",
+    "contracts/obi-account-common/*",
+    "contracts/fee-manager",
+    "packages/ec_curve",
+    "packages/sss",
+    "contracts/secret-share-signer-local",
+]
+exclude = ["packages/tss-snap/packages/wasm"]
+
+[patch.crates-io]
+serde-json-wasm = { git = "https://github.com/chris-ricketts/serde-json-wasm", branch = "rm-err-fmt" }
+getrandom = { git = "https://github.com/obi-wallet/getrandom-secretwasm", branch = "secretwasm" }
+
+[profile.release.package.common]
+codegen-units = 256
+incremental = false
+
+[profile.release]
+debug = false
+debug-assertions = false
+opt-level = 3
+rpath = false
+lto = true
+overflow-checks = true
+panic='abort'

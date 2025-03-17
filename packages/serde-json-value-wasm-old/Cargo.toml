@@ -1,0 +1,23 @@
+[package]
+name = "serde-json-value-wasm"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["Christopher Ricketts <chris_ricketts@protonmail.com>"]
+categories = ["wasm"]
+description = "serde_json's dynamic Value deserialization for Wasm programs (small, deterministic, no floats)"
+keywords = ["serde", "json", "wasm"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/chris-ricketts/serde-json-value-wasm"
+exclude = [".cargo/", ".gitignore"]
+
+[lib]
+doctest = false
+
+[dependencies]
+serde = "1.0.137"
+serde-json-wasm = "0.4.1"
+
+[dev-dependencies]
+serde_json = "1.0.82"

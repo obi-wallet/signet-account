@@ -1,0 +1,339 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "update_legacy_owner"
+      ],
+      "properties": {
+        "update_legacy_owner": {
+          "type": "object",
+          "required": [
+            "new_legacy_owner"
+          ],
+          "properties": {
+            "new_legacy_owner": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "update_config"
+      ],
+      "properties": {
+        "update_config": {
+          "type": "object",
+          "required": [
+            "new_config"
+          ],
+          "properties": {
+            "new_config": {
+              "$ref": "#/definitions/ConfigUpdate"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "new_account"
+      ],
+      "properties": {
+        "new_account": {
+          "type": "object",
+          "required": [
+            "fee_debt",
+            "next_hash_seed",
+            "owner",
+            "signers",
+            "update_delay"
+          ],
+          "properties": {
+            "fee_debt": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "next_hash_seed": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "signers": {
+              "$ref": "#/definitions/Signers"
+            },
+            "update_delay": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "user_state": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "user_state_code_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "init_debt"
+      ],
+      "properties": {
+        "init_debt": {
+          "type": "object",
+          "required": [
+            "fee_debt",
+            "owner"
+          ],
+          "properties": {
+            "fee_debt": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "owner": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "setup_user_account"
+      ],
+      "properties": {
+        "setup_user_account": {
+          "type": "object",
+          "required": [
+            "next_hash_seed",
+            "owner",
+            "signers",
+            "update_delay"
+          ],
+          "properties": {
+            "next_hash_seed": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "signers": {
+              "$ref": "#/definitions/Signers"
+            },
+            "update_delay": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "user_state": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "user_state_code_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "setup_user_state"
+      ],
+      "properties": {
+        "setup_user_state": {
+          "type": "object",
+          "required": [
+            "owner"
+          ],
+          "properties": {
+            "owner": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "Addr": {
+      "description": "A human readable address.\n\nIn Cosmos, this is typically bech32 encoded. But for multi-chain smart contracts no assumptions should be made other than being UTF-8 encoded and of reasonable length.\n\nThis type represents a validated address. It can be created in the following ways 1. Use `Addr::unchecked(input)` 2. Use `let checked: Addr = deps.api.addr_validate(input)?` 3. Use `let checked: Addr = deps.api.addr_humanize(canonical_addr)?` 4. Deserialize from JSON. This must only be done from JSON that was validated before such as a contract's state. `Addr` must not be used in messages sent by the user because this would result in unvalidated instances.\n\nThis type is immutable. If you really need to mutate it (Really? Are you sure?), create a mutable copy using `let mut mutable = Addr::to_string()` and operate on that `String` instance.",
+      "type": "string"
+    },
+    "ConfigUpdate": {
+      "type": "object",
+      "properties": {
+        "asset_unifier_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "asset_unifier_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "debt_repay_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "debtkeeper_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "debtkeeper_code_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "default_gatekeepers": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "array",
+            "items": [
+              {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "maxItems": 3,
+            "minItems": 3
+          }
+        },
+        "fee_pay_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_account_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_account_code_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "user_entry_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_entry_code_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "user_state_code_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_state_code_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        }
+      }
+    },
+    "Signer": {
+      "description": "The `Signer` type identifies a member of the admin multisig, and its type. The format or encryption of type, `ty`, is up to the client. `address` is verified using the deps API when Signer is created.",
+      "type": "object",
+      "required": [
+        "address",
+        "pubkey_base_64",
+        "ty"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/Addr"
+        },
+        "pubkey_base_64": {
+          "type": "string"
+        },
+        "ty": {
+          "type": "string"
+        }
+      }
+    },
+    "Signers": {
+      "type": "object",
+      "required": [
+        "signers"
+      ],
+      "properties": {
+        "signers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Signer"
+          }
+        }
+      }
+    }
+  }
+}

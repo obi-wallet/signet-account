@@ -1,0 +1,6 @@
+node_modules
+.env.local
+.env.testnet
+.env.mainnet
+dist
+

@@ -1,0 +1,37 @@
+{
+  "name": "integration-tests",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build-mpc-bindings-wasm-and-install": "make build-mpc-bindings-wasm && yarn add --force file:../../../packages/framework/bindings/pkg",
+    "test-simulated-keygen-signing": "make && KEYGEN_AND_SIGN_MODE=simulated node --loader ts-node/esm/transpile-only node_modules/mocha/bin/_mocha --timeout 1800000 test/**/*.test.ts",
+    "test-distributed-keygen-signing": "make && KEYGEN_AND_SIGN_MODE=distributed node --loader ts-node/esm/transpile-only node_modules/mocha/bin/_mocha --timeout 1800000 test/**/*.test.ts",
+    "test": "node --loader ts-node/esm node_modules/mocha/bin/_mocha --timeout 120000 test/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@mpc-sdk/mpc-bindings": "file:../../../packages/framework/bindings/pkg",
+    "@types/chai": "^4.3.5",
+    "@types/elliptic": "6.4.14",
+    "@types/hdkey": "^2.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.4.5",
+    "@types/secp256k1": "^4.0.3",
+    "chai": "^4.3.7",
+    "dotenv": "^16.3.1",
+    "elliptic": "6.5.4",
+    "esm": "^3.2.25",
+    "ethers": "^6.7.0",
+    "mocha": "^10.2.0",
+    "prettier": "3.0.0",
+    "secretjs": "^2.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "5.1.6"
+  },
+  "dependencies": {
+    "@cosmjs/amino": "^0.32.2",
+    "@cosmjs/crypto": "^0.32.2",
+    "@cosmjs/proto-signing": "^0.32.2",
+    "@terra-money/terra.js": "^3.1.10",
+    "hdkey": "^2.1.0"
+  }
+}

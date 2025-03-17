@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "description": "Execute a message, if it passes the checks",
+      "type": "object",
+      "required": [
+        "execute"
+      ],
+      "properties": {
+        "execute": {
+          "type": "object",
+          "required": [
+            "msg"
+          ],
+          "properties": {
+            "msg": {
+              "description": "The message to execute. A serialized UniversalMsg Entry point doesn't have to know about the UniversalMsg, so it can be updated",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Binary"
+                }
+              ]
+            },
+            "signatures": {
+              "description": "Hex signatures for alternate verification method",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "update_user_account_address"
+      ],
+      "properties": {
+        "update_user_account_address": {
+          "type": "object",
+          "required": [
+            "new_address"
+          ],
+          "properties": {
+            "new_address": {
+              "type": "string"
+            },
+            "new_code_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "A WrappedMigrate callable by owner (self) avoids needing to update code admins whenever owner is updated",
+      "type": "object",
+      "required": [
+        "wrapped_migrate"
+      ],
+      "properties": {
+        "wrapped_migrate": {
+          "type": "object",
+          "properties": {
+            "account_code_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "account_code_id": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "entry_code_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "entry_code_id": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "migrate_msg_binary": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/Binary"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "state_code_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state_code_id": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "Binary": {
+      "description": "Binary is a wrapper around Vec<u8> to add base64 de/serialization with serde. It also adds some helper methods to help encode inline.\n\nThis is only needed as serde-json-{core,wasm} has a horrible encoding for Vec<u8>. See also <https://github.com/CosmWasm/cosmwasm/blob/main/docs/MESSAGE_TYPES.md>.",
+      "type": "string"
+    }
+  }
+}

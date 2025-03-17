@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "fee_details"
+      ],
+      "properties": {
+        "fee_details": {
+          "type": "object",
+          "required": [
+            "chain_id"
+          ],
+          "properties": {
+            "chain_id": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

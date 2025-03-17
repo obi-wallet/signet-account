@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserAccountAddressResponse",
+  "type": "object",
+  "required": [
+    "user_account_address",
+    "user_account_code_hash"
+  ],
+  "properties": {
+    "user_account_address": {
+      "type": "string"
+    },
+    "user_account_code_hash": {
+      "type": "string"
+    }
+  }
+}

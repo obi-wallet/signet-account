@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "description": "Proposes a new owner for the proxy contract – must be called by the existing owner",
+      "type": "object",
+      "required": [
+        "update_legacy_owner"
+      ],
+      "properties": {
+        "update_legacy_owner": {
+          "type": "object",
+          "required": [
+            "new_owner"
+          ],
+          "properties": {
+            "new_owner": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "upsert_pair"
+      ],
+      "properties": {
+        "upsert_pair": {
+          "type": "object",
+          "required": [
+            "routes",
+            "token0",
+            "token1"
+          ],
+          "properties": {
+            "routes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PairContract"
+              }
+            },
+            "token0": {
+              "type": "string"
+            },
+            "token1": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "PairContract": {
+      "type": "object",
+      "required": [
+        "chain_id",
+        "contract_addr",
+        "query_format",
+        "token0",
+        "token1"
+      ],
+      "properties": {
+        "chain_id": {
+          "type": "string"
+        },
+        "contract_addr": {
+          "type": "string"
+        },
+        "query_format": {
+          "$ref": "#/definitions/PairMessageType"
+        },
+        "token0": {
+          "type": "string"
+        },
+        "token1": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PairMessageType": {
+      "type": "string",
+      "enum": [
+        "terraswap_type",
+        "juno_type"
+      ]
+    }
+  }
+}

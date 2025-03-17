@@ -2,15 +2,6 @@
 
 See the [Obi Public Docs](https://obi-wallet.notion.site/Obi-Info-Docs-891c202333914587ae3e91f0e5430b58) for more information on Obi.
 
-# Building and Testing
-
-## Note on CosmWasm vs "SecretWasm"
-Secret implementation of CosmWasm has some significant differences. The standard packages `cosmwasm-std` and `secret-cosmwasm-std` are used throughout, along with related packages such as `cw-serde` and `secret-toolkit`.
-
-In order to avoid mass duplicate dependency declarations, a `cosmwasm_imports!()` macro imports from the appropriate package, depending on whether the feature `cosmwasm` is enabled or not. The feature `secretwasm` is enabled by default so that standard (reproducible) public docker optimizer images can be used without modification, so you will commonly see attributes such as `#[cfg(all(feature = 'secretwasm', not(feature = 'cosmwasm')))]`
-
-Plain CosmWasm support is not very helpful for production deployments, since the `secret-share-signer` is currently the only signer implemented – backup signer options are on the roadmap. However, it does allow local multitest to be used, as Secret multitesting is not very well developed at this time.
-
 ## Multitest Integration Testing
 
 Set `default = ["cosmwasm"]` feature for all contracts in order to run multitest integration tests without needing a network.

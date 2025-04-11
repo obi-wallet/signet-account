@@ -6,8 +6,9 @@ pub const NEUTRON_MAINNET_AXLUSDC_IBC: &str =
     "ibc/B559A80D62249C8AA07A380E2A2BEA6E5CA9A6F079C912C3A9E9B494105E4F81";
 pub const OSMO_TEST_5_AXLUSDC_IBC: &str =
     "ibc/6F34E1BD664C36CE49ACC28E60D62559A5F96C4F9A6CCE4FC5A67B2852E24CFE";
-// at a later date these will be retrieved from something like an on-chain registry
-
+pub const TERRA_MAINNET_AXLUSDC_IBC: &str =
+    "ibc/B3504E092456BA618CC28AC671A71FB08C6CA0FD0BE7C8A5B5A3E2DD933CC9E4";
+    
 /// Testnet address of our Juno dummy contract
 pub const TESTNET_DUMMY_CONTRACT: &str =
     "juno1xy4n2tqzrlvemuhjmcwlluxufflahh6rgzyzudtss2mfv7yt37as9g6yq2";

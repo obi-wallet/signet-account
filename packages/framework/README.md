@@ -1,5 +1,6 @@
-# Multi-party computation protocol
+Note: `pkg` is included pre-build in repo for expediency. If any issues, rebuild.
 
+# Multi-party computation protocol
 
 End-to-end encrypted relay service designed for MPC/TSS applications built using the [noise protocol][] and websockets for the transport layer.
 

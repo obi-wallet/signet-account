@@ -1,6 +1,6 @@
 # Obi Accounts, v1.2
 
-See the [Obi Public Docs](https://obi-wallet.notion.site/Obi-Info-Docs-891c202333914587ae3e91f0e5430b58) for more information on Obi.
+See the [Obi Public Docs](https://obi-wallet.notion.site/Obi-Info-Docs-891c202333914587ae3e91f0e5430b58) for more information.
 
 ## Multitest Integration Testing
 
@@ -24,17 +24,20 @@ Use the special `make compile-optimized-reproducible` to successfully compile co
 ## MacOS notes
 To run cargo tests, you may need:
 `RUSTFLAGS="-L /opt/homebrew/lib" cargo test`
+Or, on some setups:
+`RUSTFLAGS="-L /opt/homebrew/opt/gmp/lib" cargo test`
 
 ## Secretwasm Testnet Testing
 
-The Passport signer requires `default = ["secretwasm"]` and uses its own tests in /contract/secret-share-signer/tests. These tests are not restricted to the signer contract; since the signer checks `can_execute`, for example, all other contracts are involved.
+The Signet signer requires `default = ["secretwasm"]` and uses its own tests in /contract/secret-share-signer/tests. These tests are not restricted to the signer contract; since the signer checks `can_execute`, for example, all other contracts are involved.
 
-To compile, optimize, upload, instantiate, and run basic tests:
+To compile, optimize, upload, instantiate, and run basic tests, first ensure that Docker is running. Then, assuming you use `nvm`:
+
 ```
-make clean && make compile-optimized-reproducible && cd contracts/secret-share-signer/tests && NODE_ENV=local yarn test
+make clean && make compile-optimized-reproducible && cd contracts/secret-share-signer-local/tests && yarn && nvm use 16 && NODE_ENV=local yarn test
 ```
 
-First check your `contracts/secret-share-signer/tests/.env.local`. Secret testnet values are available in `.env.testnet`.
+First check your `contracts/secret-share-signer/tests/.env.local`. If you're on Apple Silicon, you will need to use GitPod, as LocalSecret won't run correctly on your system as of this README. See https://docs.scrt.network/secret-network-documentation/development/example-contracts/tools-and-libraries/local-secret
 
 ## Quick Overview of Contracts
 ### For local/test networks
@@ -56,9 +59,7 @@ Gatekeepers don't hold user state; rules are held in user-state
 - contracts/secret-share-signer: uses threshold signing to finalize a UserOperation signature, after checking it with the user account to ensure the sender/signer is authorized to perform the transaction in question
 
 ## Migration
-Native migration is not yet available on Secret. Once it is, it may or may not be enabled: we have a custom, simple upgrade process for most contracts.
-
-The simple passthrough `user-entry` contract is used to enable easy migration of all code with its `ExecuteMsg:UpdateUserAccountAddress`, optionally preserving the current user state (abstraction rules and `last_activity`).
+The simple passthrough `user-entry` contract is used to enable easy migration of all code with its `ExecuteMsg:UpdateUserAccountAddress`, optionally preserving the current user state (abstraction rules and `last_activity`). This migration path is only strictly necessary on networks which do not have native migration.
 
 ## Sample Multisend UserOperation
 For testing of signature operations, here is a valid, signed multi-send UserOperation on Goerli testnet (5), with entry point 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789.

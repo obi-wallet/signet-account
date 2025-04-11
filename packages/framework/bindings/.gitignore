@@ -1,1 +1,2 @@
-pkg
+# pkg is not ignored here for expediency, but if you have issues, you
+# may need to rebuild

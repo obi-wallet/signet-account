@@ -1,6 +1,6 @@
 ### Running Integration Tests
 
-1. Make sure the submodule at [packages/tss-snap](..%2F..%2Fpackages%2Ftss-snap) is initialized and updated:
+1. Make sure the submodule at packages/tss-snap is initialized and updated:
 
     ```bash
     git submodule update --init --recursive
@@ -15,7 +15,10 @@
     ```bash
     (cd tests && make run-localsecret)
     ```
-3. In [tests](tests) run:
+
+On Apple Silicon, this will not function. Use Gitpod instead for a quick dev environment: https://gitpod.io/#https://github.com/scrtlabs/GitpodLocalSecret
+
+4. In [tests](tests) run:
 
     ```bash
     yarn build-mpc-ecdsa-wasm

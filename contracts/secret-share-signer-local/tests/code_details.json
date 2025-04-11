@@ -1,287 +1,45 @@
 [
   {
-    "name": "account_creator",
-    "codeHash": "4ce5b75fd5e7e1f3b16d0f5c9d8716256419066264f27fbb7d1f7be3e38142af",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6487,
-        "contractAddress": "secret1w9rhd7hw7my6442fpsw78mmd4r2d22yauf3087"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1659,
-        "contractAddress": "secret1ykr9fm89g49hq98dtc6fwvnngajws2alrf2vhs"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 13,
-        "contractAddress": "secret1766a72452a6zvu674uw0qrnlm305hp5etqrmzq"
-      }
-    ]
+    "name": "account_creator"
   },
   {
-    "name": "asset_unifier",
-    "codeHash": "c9c38a5757626fc4b9f172f0afd1f98f462c92d3a443be8d54c953c240ee05ca",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6488,
-        "contractAddress": "secret19m585y8q68vqedg6raxx8eee2cr7ree3udpqyv"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1660,
-        "contractAddress": "secret153twlah9pny03g7u8samxh3yc7k78tvlgre2f8"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 14,
-        "contractAddress": "secret1fuydff2uyunpvmqhs2yzsy0rrychhtrarhgqxa"
-      }
-    ]
+    "name": "asset_unifier"
   },
   {
     "name": "dummy_counter_executable",
-    "codeHash": "d67030462b2bd05d517850f3cc5fcd67d1ed36658cebb0dbdf9a82a80f3ca9aa",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6489
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1661
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 15
-      }
-    ]
+    "codeHash": "5bdab0a7c5679d30ffc385bdb076c3013fc27e723abbf11a05e742b499bafe7b"
   },
   {
-    "name": "eth_interpreter",
-    "codeHash": "74a356d375f041bb2d9b3112115f084f30353231dce4f260a782d19f2feb5b3f",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6490,
-        "contractAddress": "secret1d4dk9va2wc0pnr2tyzsx68a3sr7rccaz7xv540"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1662,
-        "contractAddress": "secret1q6atht30q8vsanh445lly9smfer7qalgq3g6y9"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 16,
-        "contractAddress": "secret17tl4fuhnm3gs6w763nags2yvngrdyrulkvntt9"
-      }
-    ]
+    "name": "eth_interpreter"
   },
   {
-    "name": "fee_manager",
-    "codeHash": "7b355e180f1690f996d9b32f45124bb65ed685a87121434812dde155eb9c76d7",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6491,
-        "contractAddress": "secret15yrh500vxsnxpk08xf335y0knzfgm59rs9zxz5"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1663,
-        "contractAddress": "secret1vnas245e36u299c4sq0u3fcsca737gqxhcpkxw"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 17,
-        "contractAddress": "secret1h8ymwsg4xawzakaltvcm5zg9d5pj2q6jlcy3x4"
-      }
-    ]
+    "name": "fee_manager"
   },
   {
-    "name": "debtkeeper",
-    "codeHash": "bc60b4567fee9fb82e4ae52aada3cc914e0585afd536719a6e456f4bf5a0efe9",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6492
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1664
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 18
-      }
-    ]
+    "name": "debtkeeper"
   },
   {
-    "name": "gatekeeper_message",
-    "codeHash": "ea51bc3f6e7e406a04e762780fdcc0ae59af7fb49f5d1738bc97b51e8d7b4ef5",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6493,
-        "contractAddress": "secret1dxv6jfasf5wk4mee8azpgmh5djy6kqcclkdjzx"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1665,
-        "contractAddress": "secret1mtczlvmuhc5f50f0j9wfpqwh28jhftfynfkhq0"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 19,
-        "contractAddress": "secret1r8exfkuj5y80m20sv62x30plfezpwm7y39n7x6"
-      }
-    ]
+    "name": "gatekeeper_message"
   },
   {
-    "name": "gatekeeper_spendlimit",
-    "codeHash": "b7060433ba861aae0af72274be40171261baa0a47d5e1e1b372ebfaa03dae52e",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6494,
-        "contractAddress": "secret1cmkttr32d85un68qdq5v5xcys8nccfrm0ca0cd"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1666,
-        "contractAddress": "secret1q6lexc8s5h645wl90vf66w0ekpg6une5ldaqax"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 20,
-        "contractAddress": "secret1mu740j9v0c9jxc7frxsn0es8artamfj5qwqugm"
-      }
-    ]
+    "name": "gatekeeper_spendlimit"
   },
   {
-    "name": "pair_registry",
-    "codeHash": "061b674295fefbcde6fd9fee0527ad4f334518d9cab245ceab21eeb9fa6446ca",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6495,
-        "contractAddress": "secret1rff4w0qv45dxpddpazsff5tm0g84g2axhn99x6"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1667,
-        "contractAddress": "secret1g3tq6wa62852vt3e0kz8sv4q322xq2kldjmz7g"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 21,
-        "contractAddress": "secret1qmr5snc05ww8eymeme7k6gt7rgf6k2qhq69xlw"
-      }
-    ]
+    "name": "pair_registry"
   },
   {
-    "name": "premigrate_user_entry",
-    "codeHash": "f7f4d2807381af2a9326583eb368f0d8219fe3d84ab6c3e2b1743b9900ea03b2",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6496,
-        "contractAddress": "secret1vlwxcutyl2ta4wkgr80x9u4s206tste3z9qdwa"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1668,
-        "contractAddress": "secret14upn002h6342f6plaghfx9uylv6t24yar2m45d"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 22,
-        "contractAddress": "secret1drl5qps6fe7pnghwma6g32rcm5xd3kzd5wuh9n"
-      }
-    ]
+    "name": "premigrate_user_entry"
   },
   {
-    "name": "secret_share_signer",
-    "codeHash": "77e3a70a35e6b0b8e66aaaec8b15f142edfb32cec0da15a1ad09653d0ca5b321",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6497,
-        "contractAddress": "secret19tngw3m5ql0xu5c6tff6fpwa2rwqttxkpz74s4"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1669,
-        "contractAddress": "secret1p8r64nwsuda8en84aazharex99gjj3z57a7jgm"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 23,
-        "contractAddress": "secret17hzp23x3xru5wjrdgtn9fwk8rrf02lh548pz2t"
-      }
-    ]
+    "name": "secret_share_signer"
   },
   {
-    "name": "user_account",
-    "codeHash": "615c6b0758098e7c29233ab1e3a863feae71668a2c7a5a00ba081fa3506d1a17",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6498,
-        "contractAddress": "secret157v3cmesz87aadp0x5ufk6ake28lgc54ldugaa"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1670,
-        "contractAddress": "secret1egatpmd88chmgdc32axvp3rk9rqpa5vt06tmg2"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 24,
-        "contractAddress": "secret1v4u4l7sm58wga7sdkgv035zkjm4lh3d2xmf67s"
-      }
-    ]
+    "name": "user_account"
   },
   {
-    "name": "user_entry",
-    "codeHash": "26cd99181ed594fb315c43a96a3c047719fa8415108a9eec07dc24331a80e27f",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6499,
-        "contractAddress": "secret1vlwxcutyl2ta4wkgr80x9u4s206tste3z9qdwa"
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1671,
-        "contractAddress": "secret14upn002h6342f6plaghfx9uylv6t24yar2m45d"
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 25,
-        "contractAddress": "secret1drl5qps6fe7pnghwma6g32rcm5xd3kzd5wuh9n"
-      }
-    ]
+    "name": "user_entry"
   },
   {
-    "name": "user_state",
-    "codeHash": "7b6963efe45c086c26d59db11e9361e642005eddf9c705a7c88aa442803b5e2b",
-    "deployments": [
-      {
-        "chainId": "pulsar-3",
-        "codeId": 6500
-      },
-      {
-        "chainId": "secret-4",
-        "codeId": 1672
-      },
-      {
-        "chainId": "secretdev-1",
-        "codeId": 26
-      }
-    ]
+    "name": "user_state"
   }
 ]

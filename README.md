@@ -43,6 +43,7 @@ First check your `contracts/secret-share-signer/tests/.env.local`. If you're on 
 ### For local/test networks
 - dummy/dummy-counter-executable: used to provide an execute action (for tests such as message allowlist)
 
+### Core Account Contracts
 - contracts/obi-account/account-creator: a factory which creates user-account contracts with gatekeepers set up as requested
 - contracts/obi-account/user-account: the account logic contract. Its contract is aware of its owner address, which can update itself, as well as connected gatekeepers
 - contracts/obi-account/user-entry: the address which actually holds assets. It is a minimalistic wrapper around user-account so that the rest of the account can be migrated/updated in contexts without native migration capability

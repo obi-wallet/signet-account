@@ -1,6 +1,6 @@
-# Obi Accounts, v1.2
+# Signet Accounts, v1.2
 
-See the [Obi Public Docs](https://obi-wallet.notion.site/Obi-Info-Docs-891c202333914587ae3e91f0e5430b58) for more information.
+See "Architecture" at the bottom of this README for more detailed information.
 
 ## Multitest Integration Testing
 
@@ -84,3 +84,41 @@ Signed UserOperation: {
 }
 UserOpHash: 0x3237715bcf5c565a7f45ef46bd8af9b616d5bc44224354b3b3a19c9d259c56cf
 ```
+
+## Architecture
+
+You can view interactive account flowcharts [here](https://lucid.app/lucidchart/5b1a975e-f1a4-4893-94eb-70bbba792fde/edit?invitationId=inv_d72b305e-e151-4ec2-adff-e699fa89a658&page=0_0#) for the following actions:
+
+- Create an Account
+- Add an Abstraction Rule
+- Execute a Cosmos Message
+- Sign an EthUserOp
+- Update User Account Contracts
+
+A Signet Account is set up by an Account Factory call, either by a user or by an entity pre-configuring an account which will be transferred to a user.
+
+This creates a `user_entry` contract, which is minimal. This contract knows the address of its `user_account` contract, the main logic hub. In this way, the `user_entry` can execute an account upgrade by pointing to a new `user_account` contract with updated code – a sort of manual migration for chains where native migration/upgrade is not available.
+
+The user account knows its `owner` and the `address` of its `user_state contract`, where all transaction policies are stored. It also knows the addresses of various common logic contracts – in particular, the gatekeepers which check the various kinds of transaction policies against incoming transactions.
+
+Gatekeeper logic contracts include:
+
+- `gatekeeper_debt` (for managing account fee debt)
+- `gatekeeper_message` (allow/block/delay listing for specified actors and/or contracts and/or message contents)
+- `gatekeeper_spendlimit` (allowances, budgets, inheritance)
+
+Upcoming logic contracts include the following logic, which is currently included directly in user_account:
+
+- EVM transaction/user operation parser
+- Cosmos message parser
+- Solana message parser
+
+Message parsing is not required for all Signte features – chains without message parsing support can still include updatable Multikey ownership, unrestricted session keys, and final recovery/inheritance. However, the enforcement of spendlimits, allow/block lists, etc. requires message inspection by the contract in order to determine whether an existing abstraction rule allows the transaction.
+
+When signing for a target chain (not the home chain), the actor does not directly interact with `user_entry`. Instead, the actor calls `Sign` on the threshold signer contract and includes:
+
+- partially completed offline signature shares (the signer will finalize with its TEE share)
+- if querying, proof that it controls an authorized keypair
+- the user operation (EVM) or transaction (other chains) for which the actor is requesting a signature
+
+The threshold signer contract verifies the actor's identity and checks with the provided `user_entry` contract to verify that the user operation or transaction is allowed by some abstraction rule, authorizing the actor to perform the operation. It also checks that any necessary fee is included, if the transaction is a send. Assuming these checks pass, it completes the signature and returns it.
